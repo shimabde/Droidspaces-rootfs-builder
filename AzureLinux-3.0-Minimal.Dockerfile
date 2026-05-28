@@ -87,6 +87,12 @@ mkdir -p /etc/systemd/system
 ln -sf /dev/null /etc/systemd/system/systemd-networkd-wait-online.service
 ln -sf /dev/null /etc/systemd/system/systemd-journald-audit.socket
 
+# Nuke useless iptables service
+rm -f /etc/systemd/system/iptables.service \
+      /etc/systemd/scripts/iptables \
+      /etc/systemd/scripts/iptables.stop \
+      /etc/systemd/system/multi-user.target.wants/iptables.service || true
+
 # Journald configuration.
 mkdir -p /etc/systemd/journald.conf.d
 cat > /etc/systemd/journald.conf.d/droidspaces.conf <<'EOF'
