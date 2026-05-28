@@ -172,6 +172,7 @@ RUN apt-get update && \
     # Docker
     docker.io \
     docker-compose \
+    docker-cli \
     && apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
